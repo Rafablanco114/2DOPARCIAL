@@ -1,0 +1,56 @@
+using System;
+
+namespace examen12
+{
+    //Rafael Enrique Blanco (2020-10459) Ejercicio12
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Programa1 Raf = new Programa1();
+            Raf.Cargar();
+            Raf.salariomayor();
+            Console.WriteLine("Rafael Enrique Blanco (2020-10459)");
+
+        }
+        class Programa1
+        {
+            private string[] nombre;
+
+            private float[] sueldo;
+            public void Cargar()
+            {
+                nombre = new string[5];
+                sueldo = new float[5];
+                for (int r = 0; r < nombre.Length; r++)
+                {
+                    Console.Write("Nombre Empleado " + (r + 1) + " ");
+                    nombre[r] = Console.ReadLine();
+                    Console.Write("Sueldo Empleado " + (r + 1) + " ");
+                    string linea;
+                    linea = Console.ReadLine();
+                    sueldo[r] = float.Parse(linea);
+                }
+            }
+            public void salariomayor()
+            {
+                float MA;
+                int pos;
+                MA = sueldo[0];
+                pos = 0;
+                for (int r = 1; r < nombre.Length; r++)
+                {
+                    if (sueldo[r] > MA)
+                    {
+                        MA = sueldo[r];
+                        pos = r;
+                    }
+                   
+                }
+                Console.WriteLine("El empleado con sueldo mayor es :" + nombre[pos]);
+                Console.WriteLine("Tiene un sueldo de: " + MA);
+                Console.ReadKey();
+            }
+        }
+    }
+}
